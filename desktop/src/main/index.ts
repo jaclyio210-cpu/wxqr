@@ -13,8 +13,12 @@ ipcMain.handle('save-image', async (_, dataUrl: string, filename: string) => {
   })
   if (canceled || !filePath) return { success: false }
   const base64 = dataUrl.replace(/^data:image\/\w+;base64,/, '')
-  writeFileSync(filePath, Buffer.from(base64, 'base64'))
-  return { success: true, path: filePath }
+  try {
+    writeFileSync(filePath, Buffer.from(base64, 'base64'))
+    return { success: true, path: filePath }
+  } catch (e: any) {
+    return { success: false, error: e.message }
+  }
 })
 
 ipcMain.handle('get-config', () => {
@@ -37,7 +41,6 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
     }
   })
 

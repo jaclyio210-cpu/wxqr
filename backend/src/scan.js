@@ -18,6 +18,8 @@ async function scanCode(id) {
     };
   }
 
+  // NOTE: concurrent scans can cause a race condition here (non-atomic read-modify-write).
+  // Acceptable for personal single-user use.
   const newCount = meta.scan_count + 1;
   meta.scan_count = newCount;
   try {

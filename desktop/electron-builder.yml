@@ -33,6 +33,3 @@ nsis:
   artifactName: 微信活码管理-setup-${version}.${ext}
 
 npmRebuild: false
-publish:
-  provider: generic
-  url: https://example.com/auto-updates

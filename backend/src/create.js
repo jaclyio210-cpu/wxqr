@@ -2,6 +2,12 @@ const { nanoid } = require('nanoid');
 const { putObject, putJson } = require('./cos');
 
 async function createCode({ qr1, qr2 }) {
+  if (!qr1 || typeof qr1 !== 'string' || !qr2 || typeof qr2 !== 'string') {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'qr1 and qr2 are required' }),
+    };
+  }
   const id = nanoid(8);
   const qr1Key = `codes/${id}/qr1.jpg`;
   const qr2Key = `codes/${id}/qr2.jpg`;

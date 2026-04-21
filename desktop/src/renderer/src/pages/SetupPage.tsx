@@ -9,7 +9,7 @@ export default function SetupPage({ onSaved }: Props) {
   const [saving, setSaving] = useState(false)
 
   const handleSave = async () => {
-    if (!url.startsWith('http')) {
+    if (!url.startsWith('https://')) {
       alert('请输入完整的 https:// 地址')
       return
     }
