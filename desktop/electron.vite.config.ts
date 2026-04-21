@@ -12,6 +12,7 @@ export default defineConfig({
       }
     },
     plugins: [react()],
+    // @ts-ignore vitest test options — picked up by vitest CLI
     test: {
       environment: 'jsdom',
       globals: true,
