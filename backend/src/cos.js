@@ -44,7 +44,11 @@ async function putJson(key, obj) {
 
 async function getJson(key) {
   const data = await getObject(key);
-  return JSON.parse(data.Body.toString());
+  try {
+    return JSON.parse(data.Body.toString());
+  } catch (e) {
+    throw new Error(`Failed to parse JSON for key "${key}": ${e.message}`);
+  }
 }
 
 function getPublicUrl(key) {
