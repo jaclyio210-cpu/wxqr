@@ -1,0 +1,14 @@
+{
+  "name": "wxqr-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.14.0",
+    "nanoid": "^3.3.7"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}

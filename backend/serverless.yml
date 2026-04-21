@@ -1,0 +1,41 @@
+app: wxqr
+stage: prod
+name: wxqr-backend
+
+component: scf
+inputs:
+  name: wxqr-backend
+  src:
+    src: ./src
+    exclude:
+      - .env
+      - node_modules/.cache/**
+  region: ap-guangzhou
+  runtime: Nodejs18.15
+  handler: index.handler
+  memorySize: 128
+  timeout: 10
+  environment:
+    variables:
+      COS_SECRET_ID: ${env:COS_SECRET_ID}
+      COS_SECRET_KEY: ${env:COS_SECRET_KEY}
+      COS_BUCKET: ${env:COS_BUCKET}
+      COS_REGION: ${env:COS_REGION}
+      API_BASE_URL: ${env:API_BASE_URL}
+  events:
+    - apigw:
+        parameters:
+          serviceName: wxqr-api
+          environment: release
+          endpoints:
+            - path: /create
+              method: POST
+              enableCORS: true
+            - path: /scan/{id}
+              method: GET
+            - path: /codes
+              method: GET
+              enableCORS: true
+            - path: /codes/{id}
+              method: DELETE
+              enableCORS: true
