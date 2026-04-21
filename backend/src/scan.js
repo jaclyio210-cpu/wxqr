@@ -10,6 +10,7 @@ async function scanCode(id) {
   try {
     meta = await getJson(metaKey);
   } catch (e) {
+    console.error(`scanCode getJson error for id "${id}":`, e);
     return {
       statusCode: 404,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
@@ -17,10 +18,12 @@ async function scanCode(id) {
     };
   }
 
-  meta.scan_count += 1;
+  const newCount = meta.scan_count + 1;
+  meta.scan_count = newCount;
   try {
     await putJson(metaKey, meta);
   } catch (e) {
+    console.error(`scanCode putJson error for id "${id}":`, e);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
@@ -28,7 +31,7 @@ async function scanCode(id) {
     };
   }
 
-  const qrKey = getQrKey(meta, meta.scan_count);
+  const qrKey = getQrKey(meta, newCount);
   const qrUrl = getPublicUrl(qrKey);
 
   const html = `<!DOCTYPE html>
