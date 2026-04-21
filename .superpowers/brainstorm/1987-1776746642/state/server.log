@@ -1,0 +1,17 @@
+{"type":"server-started","port":63694,"host":"0.0.0.0","url_host":"192.168.195.128","url":"http://192.168.195.128:63694","screen_dir":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content","state_dir":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/state"}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/q1-users.html"}
+{"source":"user-event","type":"click","text":"A\n    \n      只有我自己用\n      个人工具，不需要注册登录，直接管理自己的活码","choice":"a","id":null,"timestamp":1776746725017}
+{"source":"user-event","type":"click","text":"A\n    \n      只有我自己用\n      个人工具，不需要注册登录，直接管理自己的活码","choice":"a","id":null,"timestamp":1776746729579}
+{"source":"user-event","type":"click","text":"A\n    \n      只有我自己用\n      个人工具，不需要注册登录，直接管理自己的活码","choice":"a","id":null,"timestamp":1776746729747}
+{"source":"user-event","type":"click","text":"A\n    \n      只有我自己用\n      个人工具，不需要注册登录，直接管理自己的活码","choice":"a","id":null,"timestamp":1776746739364}
+{"source":"user-event","type":"click","text":"A\n    \n      只有我自己用\n      个人工具，不需要注册登录，直接管理自己的活码","choice":"a","id":null,"timestamp":1776746739704}
+{"source":"user-event","type":"click","text":"A\n    \n      只有我自己用\n      个人工具，不需要注册登录，直接管理自己的活码","choice":"a","id":null,"timestamp":1776746739873}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/q2-install.html"}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/q3-backend.html"}
+{"source":"user-event","type":"click","text":"C\n    \n      不想管服务器，有更简单的方式吗？\n      可以探讨纯本地方案或其他替代思路","choice":"c","id":null,"timestamp":1776746997556}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/q4-china-backend.html"}
+{"source":"user-event","type":"click","text":"A\n    \n      腾讯云函数（SCF）\n      每月 100万次免费调用，微信/QQ 账号直接登录，无需备案即可使用。存储用腾讯云 COS（50GB免费）存微信二维码图片","choice":"a","id":null,"timestamp":1776747209556}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/q5-share.html"}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/waiting-1.html"}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/design-arch.html"}
+{"type":"screen-added","file":"/home/work/openclaude/WXQR/.superpowers/brainstorm/1987-1776746642/content/design-ui.html"}

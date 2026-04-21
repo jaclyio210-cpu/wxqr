@@ -1,0 +1,39 @@
+<h2>整体架构设计</h2>
+<p class="subtitle">三个部分协同工作</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:24px 0">
+  <div style="background:#e3f2fd;border-radius:12px;padding:20px;text-align:center">
+    <div style="font-size:32px;margin-bottom:8px">🖥️</div>
+    <h3 style="margin:0 0 8px;color:#1565c0">Windows 桌面 App</h3>
+    <p style="font-size:13px;color:#555;margin:0">Electron + React<br><br>• 上传2个微信二维码图片<br>• 生成活码（QR图片）<br>• 保存活码图片到本地<br>• 查看扫码统计</p>
+  </div>
+  <div style="background:#e8f5e9;border-radius:12px;padding:20px;text-align:center">
+    <div style="font-size:32px;margin-bottom:8px">⚡</div>
+    <h3 style="margin:0 0 8px;color:#2e7d32">腾讯云 SCF</h3>
+    <p style="font-size:13px;color:#555;margin:0">云函数（免费）<br><br>• 接收上传请求<br>• 处理扫码跳转<br>• 轮换逻辑（单双次）<br>• 返回对应微信二维码页</p>
+  </div>
+  <div style="background:#fff3e0;border-radius:12px;padding:20px;text-align:center">
+    <div style="font-size:32px;margin-bottom:8px">🗄️</div>
+    <h3 style="margin:0 0 8px;color:#e65100">腾讯云 COS</h3>
+    <p style="font-size:13px;color:#555;margin:0">对象存储（免费50GB）<br><br>• 存储微信二维码图片<br>• 存储活码元数据JSON<br>（含扫码计数器）</p>
+  </div>
+</div>
+
+<div style="background:#f5f5f5;border-radius:12px;padding:20px;margin-top:8px">
+  <h3 style="margin:0 0 12px">扫码流程</h3>
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px">
+    <span style="background:#1565c0;color:#fff;padding:6px 12px;border-radius:20px">用户扫描活码</span>
+    <span>→</span>
+    <span style="background:#2e7d32;color:#fff;padding:6px 12px;border-radius:20px">SCF 读取计数器</span>
+    <span>→</span>
+    <span style="background:#2e7d32;color:#fff;padding:6px 12px;border-radius:20px">计数+1，写回COS</span>
+    <span>→</span>
+    <span style="background:#e65100;color:#fff;padding:6px 12px;border-radius:20px">奇数→微信号1<br>偶数→微信号2</span>
+    <span>→</span>
+    <span style="background:#6a1b9a;color:#fff;padding:6px 12px;border-radius:20px">显示对应二维码页</span>
+  </div>
+</div>
+
+<div style="margin-top:16px;padding:12px 16px;background:#fff8e1;border-radius:8px;border-left:4px solid #f9a825;font-size:13px">
+  <strong>免费额度说明：</strong>SCF 每月100万次调用 + COS 50GB存储，个人日常使用完全免费，无需绑定信用卡（实名认证即可）
+</div>
